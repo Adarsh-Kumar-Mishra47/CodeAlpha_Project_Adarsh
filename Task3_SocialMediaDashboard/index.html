@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Ensures proper display across devices -->
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>My Dashboard | Social Metrics</title>
+  </head>
+  <body>
+    <header>
+      <h1 class="title">Social Metrics Dashboard</h1>
+      <h3 class="text">Total Followers: 23,004</h3>
+    </header>
+    <main>
+      <div class="main-title">
+        <p>Toggle Dark Mode</p>
+        <div class="toggle-container">
+          <input type="checkbox" id="switch" name="theme" />
+          <label for="switch"></label>
+        </div>
+      </div>
+
+      <section class="card-section">
+        <div class="card fb">
+          <div class="card-header">
+            <img src="images/icon-facebook.svg" alt="fb-icon" />
+            <p>ADRAL LEE</p>
+          </div>
+          <div class="card-body">
+            <h1>1987</h1>
+            <p>followers</p>
+          </div>
+          <div class="card-footer">
+            <img src="images/icon-up.svg" alt="up-icon" />
+            <p>12 today</p>
+          </div>
+        </div>
+
+        <div class="card tw">
+          <div class="card-header">
+            <img src="images/icon-twitter.svg" alt="tw-icon" />
+            <p>RADHIKA</p>
+          </div>
+          <div class="card-body">
+            <h1>1044</h1>
+            <p>followers</p>
+          </div>
+          <div class="card-footer">
+            <img src="images/icon-up.svg" alt="up-icon" />
+            <p>99 today</p>
+          </div>
+        </div>
+
+        <div class="card in">
+          <div class="card-header">
+            <img src="images/icon-instagram.svg" alt="in-icon" />
+            <p>KR$NA</p>
+          </div>
+          <div class="card-body">
+            <h1>1M</h1>
+            <p>followers</p>
+          </div>
+          <div class="card-footer">
+            <img src="images/icon-up.svg" alt="up-icon" />
+            <p>1099 today</p>
+          </div>
+        </div>
+
+        <div class="card yb">
+          <div class="card-header">
+            <img src="images/icon-youtube.svg" alt="yb-icon" />
+            <p>FOTTY SEVEN</p>
+          </div>
+          <div class="card-body">
+            <h1>8239</h1>
+            <p>subscribers</p>
+          </div>
+          <div class="card-footer">
+            <img src="images/icon-down.svg" alt="down-icon" />
+            <p>144 today</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="overview-section">
+        <h2 class="overview-title">Overview - Today</h2>
+
+        <!-- Sample overview cards -->
+        <div class="overview-card">
+          <h3 class="page-views">Page Views</h3>
+          <img class="fb-icon" src="images/icon-facebook.svg" alt="fb-icon" />
+          <h2>87</h2>
+          <img class="up-down-icon" src="images/icon-up.svg" alt="up" />
+          <p class="percentage fb-up">3%</p>
+        </div>
+
+        <!-- Repeat similar overview cards for various metrics -->
+
+      </section>
+    </main>
+    <script src="index.js"></script>
+  </body>
+</html>
