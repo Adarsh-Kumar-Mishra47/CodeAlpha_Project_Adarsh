@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Expense Tracker</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background: linear-gradient(to right, #ff9966, #ff5e62);
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    #container {
+        background-color: rgba(255, 255, 255, 0.8);
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    }
+    form {
+        margin-bottom: 20px;
+    }
+    input[type="text"], input[type="number"] {
+        margin-bottom: 10px;
+        padding: 5px;
+    }
+    button {
+        padding: 5px 10px;
+        cursor: pointer;
+    }
+    ul {
+        list-style-type: none;
+        padding: 0;
+    }
+    li {
+        margin-bottom: 5px;
+        padding: 10px;
+        border-radius: 5px;
+        color: white;
+        font-weight: bold;
+    }
+    .edit, .delete {
+        padding: 3px 8px;
+        margin-left: 5px;
+        cursor: pointer;
+        border-radius: 3px;
+    }
+    .edit {
+        background-color: #4CAF50;
+    }
+    .delete {
+        background-color: #f44336;
+    }
+</style>
+</head>
+<body>
+    <div id="container">
+        <h1>Expense Tracker</h1>
+        <form id="expenseForm">
+            <input type="text" id="expenseName" placeholder="Expense Name" required>
+            <input type="number" id="expenseAmount" placeholder="Amount" required>
+            <button type="submit">Add Expense</button>
+        </form>
+        <ul id="expenseList"></ul>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const expenseForm = document.getElementById('expenseForm');
+            const expenseList = document.getElementById('expenseList');
+
+            // Retrieve expenses from local storage if available
+            let expenses = JSON.parse(localStorage.getItem('expenses')) || [];
+
+            // Function to render expenses
+            function renderExpenses() {
+                expenseList.innerHTML = '';
+                expenses.forEach(function(expense, index) {
+                    const li = document.createElement('li');
+                    li.textContent = `${expense.name}: $${expense.amount}`;
+                    li.style.backgroundColor = getExpenseBackgroundColor(expense.amount);
+                    li.innerHTML += `<button class="edit" data-index="${index}">Edit</button>
+                                    <button class="delete" data-index="${index}">Delete</button>`;
+                    expenseList.appendChild(li);
+                });
+            }
+
+            // Function to get background color for expenses based on amount
+            function getExpenseBackgroundColor(amount) {
+                if (amount < 50) {
+                    return '#ff5e62'; // Red color
+                } else if (amount < 100) {
+                    return '#ff9966'; // Orange color
+                } else {
+                    return '#4CAF50'; // Green color
+                }
+            }
+
+            // Function to save expenses to local storage
+            function saveExpenses() {
+                localStorage.setItem('expenses', JSON.stringify(expenses));
+            }
+
+            // Event listener for form submission
+            expenseForm.addEventListener('submit', function(event) {
+                event.preventDefault();
+                const name = document.getElementById('expenseName').value;
+                const amount = parseFloat(document.getElementById('expenseAmount').value);
+                if (name && !isNaN(amount)) {
+                    expenses.push({ name: name, amount: amount });
+                    saveExpenses();
+                    renderExpenses();
+                    expenseForm.reset();
+                } else {
+                    alert('Please enter valid expense name and amount.');
+                }
+            });
+
+            // Event delegation for edit and delete buttons
+            expenseList.addEventListener('click', function(event) {
+                if (event.target.classList.contains('edit')) {
+                    const index = event.target.getAttribute('data-index');
+                    const newName = prompt('Enter new expense name:', expenses[index].name);
+                    const newAmount = parseFloat(prompt('Enter new expense amount:', expenses[index].amount));
+                    if (newName !== null && newAmount !== null && !isNaN(newAmount)) {
+                        expenses[index] = { name: newName, amount: newAmount };
+                        saveExpenses();
+                        renderExpenses();
+                    }
+                } else if (event.target.classList.contains('delete')) {
+                    const index = event.target.getAttribute('data-index');
+                    if (confirm("Are you sure you want to delete this expense?")) {
+                        expenses.splice(index, 1);
+                        saveExpenses();
+                        renderExpenses();
+                    }
+                }
+            });
+
+            // Render initial expenses
+            renderExpenses();
+        });
+    </script>
+</body>
+</html>
