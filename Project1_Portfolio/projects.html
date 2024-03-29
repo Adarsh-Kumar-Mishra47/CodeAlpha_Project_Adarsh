@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ADARSH KUMAR MISHRA Portfolio</title>
+    <link rel="stylesheet" href="index.css">
+    <style>
+        body {
+            padding: 0;
+            margin: 0;
+        }
+
+        #project {
+            padding: 12px;
+            margin: auto;
+            background-image: url('images/pro.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+            box-shadow: inset 2px 2px 12px white, 3px 3px 12px gray;
+            justify-content: center;
+            align-items: center;
+            width: 70vw;
+            height: 60vh;
+            border-radius: 30px;
+        }
+
+        #project h3,
+        p {
+            text-align: center;
+        }
+
+        #boxes {
+            color: whitesmoke;
+            display: flex;
+            width: auto;
+            justify-content: center;
+            margin: auto;
+            margin-top: 10px;
+            flex-wrap: nowrap;
+        }
+
+        #boxes > .box {
+            border-radius: 12px;
+            width: auto;
+            margin: 12px;
+            padding: 12px;
+            background-color: transparent;
+            box-shadow: 3px 3px 12px white;
+        }
+
+        .box img {
+            display: flex;
+            align-items: center;
+            max-height: 450px;
+            border-radius: 50%;
+            object-fit: contain;
+            background-color: transparent;
+            mix-blend-mode: difference;
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul id="navList">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html">Qualifications</a></li>
+            <li><a href="index.html">Languages</a></li>
+            <li><a href="index.html">Contact me</a></li>
+            <li><a class="active" href="projects.html">Project-Section</a></li>
+        </ul>
+        <button id="toggleButton">Menu</button>
+    </nav>
+    <header id="head">
+        <div class="head">
+            <h1>Welcome to ADARSH KUMAR MISHRA Portfolio</h1>
+            <span>Web-Developer</span>
+            <span>Curious Programmer</span>
+            <p><b>Developer with problem solving skills and curiosity</b></p>
+        </div>
+        <div class="head">
+            <img src="images/ADAR$H.jpg" alt="No Image" width="190px" height="220px">
+        </div>
+    </header>
+
+    <div id="project">
+        <div class="project-section">
+            <h3>Project 1: LOGIN PANEL</h3>
+            <p> Created fully functional working login system using python. This login panel in python is full functional and 
+                working. Because whenever we keep our username and password field empty, it will show a error message to 
+                the user that "all fields required". If we put incorrect password or username, it will show another error 
+                message to the user that "Invalid username or password". And if we put correct password and username it will 
+                show a welcome message to the user.</p>
+        </div>
+        <div class="project-section">
+            <h3>Project 2: WEATHER APP</h3>
+            <p> I have developed a comprehensive weather application using Python, demonstrating proficiency in web scraping, 
+                API integration, and data visualization. I efficiently fetched real-time weather data, offering users accurate 
+                forecasts. By incorporating intuitive user interfaces and graphical representations, I ensured a seamless user 
+                experience.</p>
+        </div>
+    </div>
+
+    <div id="contactme" class="contact">
+        <div class="container">
+            <div class="inp">
+                <h2>Contact me</h2>
+                <p>I am currently looking for a great opportunity to showcase my theoretical skills, please support.</p>
+                <form action="https://formspree.io/f/xjvneqdg" method="POST">
+                    <label for="name">Name<input type="text" id="name" placeholder="Your name"></label>
+                    <label for="email">Email<input type="email" id="email" placeholder="Email"></label>
+                    <label for="number">Mobile no.<input id="number" type="number" title="Mobile no." placeholder="Your phone number"></label>
+                    <textarea name="message" id="message" rows="5" placeholder="Write your feedback"></textarea>
+                    <br>
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <ul class="social-links">
+                <li><a href="https://www.linkedin.com/in/adarsh-kumar-mishra-91739523a" target="_blank">LinkedIn</a></li>
+                <li><a href="https://github.com/Adarsh-Kumar-Mishra47" target="_blank">GitHub</a></li>
+            </ul>
+        </div>
+        <div class="footer-section">
+            <h2>Contact</h2>
+            <p>Email: mishraadarshkumar72@gmail.com</p>
+            <p>Phone: +91 9508928781</p>
+        </div>
+        <p class="footer-disclaimer">&copy; ADARSH KUMAR MISHRA.</p>
+    </footer>
+
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+    <script src="index.js"></script>
+</body>
+</html>
